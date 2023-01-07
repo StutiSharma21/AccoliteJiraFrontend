@@ -1,13 +1,20 @@
 import { Component } from '@angular/core';
-import { Epic } from '../epic';
+import { Epic } from '../interfaces/epic';
+import { Jira } from '../interfaces/jira';
 import { EpicService } from '../services/epic.service';
 import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
 import { CreateProjectService } from '../services/create-project.service';
 import { CreateProjectComponent } from '../create-project/create-project.component';
 import { CreateJiraService } from '../services/create-jira.service';
 import { CreateJiraComponent } from '../create-jira/create-jira.component';
-import { CreateSprintService } from '../services/create-sprint.service';
-import { CreateSprintComponent } from '../create-sprint/create-sprint.component';
+import { Project } from '../interfaces/project';
+import { Employee } from '../interfaces/employee';
+import { AuthService } from '../services/auth.service';
+import { ProjectService } from '../services/project.service';
+import { ProjectInfoComponent } from './project-info/project-info.component';
+import { UserInfoComponent } from './user-info/user-info.component';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { AddPeopleComponent } from './add-people/add-people.component';
 
 @Component({
   selector: 'app-epic',
@@ -19,49 +26,98 @@ export class EpicComponent {
     public service:EpicService,
     public createJiraFormService : CreateJiraService,
     public createProjectFormService : CreateProjectService,
-    public createSprintFormService : CreateSprintService,
-    public dialog : MatDialog
+    public dialog : MatDialog,
+    public authService:AuthService,
+    public projectService:ProjectService,
+    private route:ActivatedRoute
     ){
   }
-xy = document.getElementById("")
-phase=["To-do","In Progress","Done"]
-epics:Epic[];
+  xy = document.getElementById("")
+  phase=["To-Do","In Progress","Done"]
+  projects:any;
+  employee:any;
+  epics:any;
+  ngOnInit(){
+    this.route.paramMap.subscribe((params:ParamMap)=>{
+      let alias=params.get('alias');
+      console.log(alias);
+      this.authService.getEmployeeFromAlias(alias).subscribe((empdata)=>{
+        this.employee=empdata;
+        console.log(this.employee);
+      })
+      this.projectService.getProjectOfEmployees(alias).subscribe((data)=>
+      {
+        console.log("it works yo yo");
+          this.projects=data;
+          //console.log(data);
+          console.log(this.projects);
+          console.log(this.projects[0].projectId);
+          this.projectService.getEpicsOfProject(this.projects[0].projectId).subscribe((epicData)=>{
+          this.epics=epicData;
+          console.log(this.epics);
+        });
+      // this.authService.employeeob.subscribe((ema)=>{
+      //  
+      //   this.employee=ema;
+      //   // console.log(ema);
+      //   console.log(this.employee);
+      //   // console.log(this.employee.alias);
+      //   //get projects
+      //   //now get epics of recent project and pass to epic
+      //   });
+  
+      });
+    });
+  }
+ 
+  onCreateJira(){
+    console.log(this.createJiraFormService.createJiraForm)
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+   this.dialog.open(CreateJiraComponent,{height: '95%',
+   width: '60%',})
+  }
+  onCreateProject(){
+    console.log(this.createProjectFormService.createProjectForm)
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+   this.dialog.open(CreateProjectComponent,{height: '70%',
+   width: '40%'});
+  }
 
-onCreateJira(){
-  console.log(this.createJiraFormService.createJiraForm)
-  const dialogConfig = new MatDialogConfig();
-  dialogConfig.disableClose = true;
-  dialogConfig.autoFocus = true;
- this.dialog.open(CreateJiraComponent,{height: '95%',
- width: '60%',})
-}
-onCreateProject(){
-  console.log(this.createProjectFormService.createProjectForm)
-  const dialogConfig = new MatDialogConfig();
-  dialogConfig.disableClose = true;
-  dialogConfig.autoFocus = true;
- this.dialog.open(CreateProjectComponent,{height: '70%',
- width: '40%'});
-}
+  // nav function
+   openNav() {
+    document.getElementById("mySidenav").style.width="250px";
+  }
+  closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
 
-onCreateSprint(){
-  console.log(this.createSprintFormService.createSprintForm)
-  const dialogConfig = new MatDialogConfig();
-  dialogConfig.disableClose = true;
-  dialogConfig.autoFocus = true;
- this.dialog.open(CreateSprintComponent,{height: '95%',
- width: '60%',})
-}
+  getProjectInfo(){
+    const dialogConfig = new MatDialogConfig();
+    this.dialog.open(ProjectInfoComponent,{height: '45%',
+    width: '25%',
+    position: {right:'5%', top: '4%'},
+    data : this.projects[0]
+  });
+  }
 
-ngOnInit(){
-this.service.epic().subscribe((epicData)=>{this.epics=epicData
-});
-}
-// nav function
- openNav() {
-  document.getElementById("mySidenav").style.width="250px";
-}
-closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}
-}
+  getUserInfo(){
+    const dialogConfig = new MatDialogConfig();
+    this.dialog.open(UserInfoComponent,{height: '45%',
+    width: '25%',
+    position: {right:'4%', top: '4%'},
+    data : this.employee });
+
+  }
+
+  addPeople(){
+    this.dialog.open(AddPeopleComponent,{height: '60%',
+    width: '30%',
+    position: {right:'30%', top: '10%'},
+    data : this.projects[0].projectId
+    })
+  }
+  }

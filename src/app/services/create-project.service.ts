@@ -7,7 +7,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 })
 
 export class CreateProjectService {
-  url = 'http://localhost:8090/projects/project';
+  url = 'http://localhost:8080/projects/project';
   constructor(private http : HttpClient) { }
 
   createProjectForm : FormGroup = new FormGroup({

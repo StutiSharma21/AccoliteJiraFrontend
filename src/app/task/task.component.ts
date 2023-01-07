@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
-import { Epic } from '../epic';
-import { Task } from '../task';
-import { TaskService } from '../task.service';
-import {Employee} from '../employee';
+import { Epic } from '../interfaces/epic';
+import { Task } from '../interfaces/task';
+import { TaskService } from '../services/task.service';
+import {Employee} from '../interfaces/employee';
 import { SlicePipe } from '@angular/common';
+import { CreateSprintComponent } from '../create-sprint/create-sprint.component';
+import { CreateSprintService } from '../services/create-sprint.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-task',
@@ -11,7 +14,10 @@ import { SlicePipe } from '@angular/common';
   styleUrls: ['./task.component.css']
 })
 export class TaskComponent {
-constructor(public taskservice:TaskService){}
+constructor(
+  public taskservice:TaskService,
+  public createSprintFormService : CreateSprintService,
+  public dialog : MatDialog){}
 phase=["To-Do","In Progress","Done"]
 tasks:Task[];
 employees:Employee[];
@@ -30,6 +36,12 @@ getJiraOfEmployee(alias:String)
 {
   console.log("hiiii");
   this.taskservice.getTasksofEmployee(alias).subscribe((tasksArray)=>{this.tasks=tasksArray;console.log(this.tasks);});
+}
+
+onCreateSprint(){
+  console.log(this.createSprintFormService.createSprintForm)
+ this.dialog.open(CreateSprintComponent,{height: '95%',
+ width: '60%',})
 }
 
 }

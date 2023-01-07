@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CreateJiraService {
-  url = 'http://localhost:8090/jira/addjira';
+  url = 'http://localhost:8080/jira/addjira';
   constructor(private http : HttpClient) { }
 
   createJiraForm : FormGroup = new FormGroup({
@@ -28,6 +28,6 @@ export class CreateJiraService {
   }
 
   getAssignEmployees():Observable<any>{
-    return this.http.get("http://localhost:8090/employees/getemployeedropdown");
+    return this.http.get("http://localhost:8080/employees/getemployeedropdown");
   }
 }

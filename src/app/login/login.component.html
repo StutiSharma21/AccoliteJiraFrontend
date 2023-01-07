@@ -1,4 +1,4 @@
-<div *ngIf="errormessage" class="alert alert-danger" role="alert">
+<!-- <div *ngIf="errormessage" class="alert alert-danger" role="alert">
     <strong>Invalid Credentials</strong>{{errormessage}}
   </div>
 <section class="vh-100" style="background-color: #508bfc;">
@@ -11,14 +11,18 @@
               <h2 class="mb-5">Log in</h2>
             <form [formGroup]="formGroup" (ngSubmit)="checkUser()">
               <div class="form-outline mb-4">
-                <input type="email" id="typeEmailX-2" class="form-control form-control-lg" placeholder="Email" formControlName="email"/>
+                <input type="email" id="typeEmailX-2" class="form-control form-control-lg" placeholder="Email" formControlName="email"/> -->
+
                 <!-- <label class="form-label" for="typeEmailX-2">Email</label> -->
-              </div>
+
+              <!-- </div>
   
               <div class="form-outline mb-4">
-                <input type="password" id="typePasswordX-2" class="form-control form-control-lg" placeholder="Password" formControlName="password"/>
+                <input type="password" id="typePasswordX-2" class="form-control form-control-lg" placeholder="Password" formControlName="password"/> -->
+
                 <!-- <label class="form-label" for="typePasswordX-2">Password</label> -->
-              </div>
+              
+              <!-- </div>
             </form>
               <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="checkUser()">Login</button>
               <hr class="my-4">
@@ -28,4 +32,50 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
+  <div class="body">
+  <div *ngIf="errormessage" class="alert alert-danger" role="alert">
+    <strong>Invalid Credentials</strong>{{errormessage}}
+  </div>
+  <header>
+    <img class ="accolitelogo" src="assets/img/jira-logo.png" alt="">
+    <a class="about nav-link" href="#aboutnav">About</a>
+    </header>
+  <section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-md-8 col-lg-7 col-xl-6">
+          <div class = "tagline">
+          <p>Project Management made easy!</p>
+          <hr>
+        </div>
+          <img src="assets/img/4380.png" class="img-fluid" alt="Phone image">
+        </div>
+
+        
+        <div class="form-container col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+          <form [formGroup]="formGroup" (ngSubmit)="checkUser()">
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input type="email" id="form1Example13" class="form-control form-control-lg" placeholder="Email" formControlName="email"/>
+              <!-- <label class="form-label" for="form1Example13">Email address</label> -->
+            </div>
+  
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <input type="password" id="form1Example23" class="form-control form-control-lg" placeholder="Password" formControlName="password"/>
+              <!-- <label class="form-label" for="form1Example23">Password</label> -->
+            </div>
+<hr>
+          </form>
+          <div class = "submit-button">
+          <button class="btn btn-primary btn-md btn-block" type="submit" (click)="checkUser()">Login</button>
+          </div>
+          
+          <!-- <div class = "pagepart2 container-fluid">
+          <section class="about-section" id="aboutnav">
+          <h2>About</h2>  
+          </section>
+        </div> -->
+        </div>
+ 

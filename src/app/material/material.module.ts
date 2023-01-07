@@ -14,7 +14,6 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatTableModule} from '@angular/material/table';
 
 
-
 const MaterialComponents = [
   MatSlideToggleModule,
   MatDialogModule,
@@ -28,8 +27,7 @@ const MaterialComponents = [
   MatCardModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatTableModule
-
+  MatTableModule,
 ];
 
 

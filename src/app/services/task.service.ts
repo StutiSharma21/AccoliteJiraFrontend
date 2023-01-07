@@ -1,12 +1,12 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Epic } from './epic';
+import { Epic } from '../interfaces/epic';
 import { Observable, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
-  url="http://localhost:8080/tasks/view/";
+  url="http://localhost:8080/jira/getAllJirasOfEmployee/";
   epicObservable=new Subject<Epic>();
 
   constructor(private http :HttpClient) { }
@@ -16,7 +16,7 @@ export class TaskService {
     // this.epicObservable.next(epic);
   }
   getAllTasks():Observable<any>{
-    return this.http.get("http://localhost:8080/tasks/viewTasks");
+    return this.http.get("http://localhost:8080/jira/getAllTasks");
   }
   getEmployees():Observable<any>{
     return this.http.get("http://localhost:8080/employees/getallemployees");

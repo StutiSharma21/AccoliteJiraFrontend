@@ -1,0 +1,35 @@
+.cross{
+    position: absolute;
+    cursor:pointer;
+    margin-top: 20px;
+    left: 88%;
+    float: right;
+  }
+
+.dialog-container{
+    text-align: center;
+  }
+
+.icon{
+    margin-top: 5%;
+    transform: scale(2);
+}
+
+.title{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    height: 30px;
+}
+
+.emp-name{
+    margin-top: 5%;
+}
+
+.btn{
+ margin-top: 5%;
+}
+
+.dialog-image{
+  height: 80px;
+  width : 80px;
+}

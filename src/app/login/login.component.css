@@ -1,0 +1,65 @@
+header{
+  padding: 19px;
+  background-color: #1565c0;
+  font-family: Serif;
+}
+nav{
+    padding-left: 10px;
+    left: 25px;
+}
+.accolitelogo{
+  width: 130px;
+  height: 15px;
+  position: absolute;
+  top:0;
+  left:30px;
+  margin-top: 25px;
+  margin-left: 20px;
+  /* margin-right: 0px; */
+}
+
+  .about{
+    margin-top: 5px;;
+    margin-left: 15%;
+    font-size: medium;
+    font-weight: 3px;
+    font-family: "Roboto";
+    color: white;
+    font-weight:500;
+  }
+
+  .tagline{
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 2rem;
+
+  }
+
+  .form-container{
+    margin-bottom: 100px;
+  }
+
+  .submit-button{
+    text-align: center;
+
+  }
+
+  ::placeholder {
+    color: gray;
+    font-size: 1rem;
+  }
+
+  .pagepart2{
+    position: absolute;
+    margin-top: 200px;
+    background-color: #EA3C12;
+  }
+
+  .body{
+    background-color: #f8f7ff;
+  }
+
+  .btn-primary{
+    --bs-btn-active-bg: #1565c0;
+    --bs-btn-bg: #1565c0;
+  }

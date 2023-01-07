@@ -1,15 +1,37 @@
- <!-- print epic details  -->
-  <mat-grid-list cols="1" rowHeight="100px" style="background-color: white;" *ngIf="epic.status == x" >
-    <mat-grid-tile (click)="displayTasks()">
-        <div >
-          <div class="circle text-uppercase">{{epic.assignee.charAt(0)}}</div>
-          <div class="assignee">{{epic.assignee}}</div>
-          <p class="epicid">{{epic.epicId}}</p>
-          <div class="epiclabel" >{{epic.epicLabel}}       
-          <mat-icon class="icon">offline_bolt</mat-icon>
-          </div>
-          <div class="prio" [style.background]="changePriorityColor(epic.priority)"></div>
-          <div class="desc">{{epic.epicDescription}}</div>
-        </div>
-    </mat-grid-tile>
-  </mat-grid-list>
+<!-- print epic details  -->
+<mat-grid-list
+  cols="1"
+  rowHeight="100px"
+  style="background-color: white"
+  *ngIf="epic.jiraStatus == x"
+>
+  <mat-grid-tile (click)="displayTasks()">
+    <!-- <div>
+      <div class = "assignee-details">
+        <div class="circle text-uppercase">{{ epic.jiraAssignee.charAt(0) }}</div>
+        <div class="assignee">{{ epic.jiraAssignee }}</div>
+      </div>
+
+      <p class="epicid">{{ epic.jiraId }}</p>
+      <p class="epiclabel">{{ epic.jiraTitle }}<mat-icon class="icon">offline_bolt</mat-icon></p> -->
+      <!-- <div class="prio" [style.background]="changePriorityColor(epic.priority)"></div> -->
+          <!-- <div class="desc">{{epic.jiraDescription}}</div>
+    </div> -->
+
+
+
+
+    <div id = "leftbox">
+      <p class="epicid">{{ epic.jiraId }}</p>
+      <p class="epiclabel">{{ epic.jiraTitle }}<mat-icon class="icon">offline_bolt</mat-icon> <mat-icon class="create-icon" (click) = "editJira()">create</mat-icon></p>
+      <div class="desc">{{epic.jiraDescription}}</div>
+    </div> 
+              
+              
+    <div id = "rightbox" class = "assignee-details">
+      <div class="circle text-uppercase">{{ epic.jiraAssignee.charAt(0) }}</div>
+      <div class="assignee">{{ epic.jiraAssignee }}</div>
+    </div>
+
+  </mat-grid-tile>
+</mat-grid-list>

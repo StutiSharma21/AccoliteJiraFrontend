@@ -1,0 +1,24 @@
+<h2 mat-dialog-title class="title"><span class="cross"><mat-icon (click)="onNoClick()">close</mat-icon></span></h2>
+<div mat-dialog-content>
+    <h2>Add Person</h2>
+    <div class = "dialog-container">
+        <img src="/assets/img/add-user.png" alt="" class = "dialog-image">
+        <form [formGroup] = "addPeopleService.addEmployeeForm" (ngSubmit) = "addEmployee()">
+        <p>
+            <mat-form-field appearance="fill">
+              <mat-label>Assignee</mat-label>
+              <mat-select formControlName = "employee">
+                <mat-option *ngFor="let employee of assignEmployee" [value]="employee">
+                  {{employee}}
+                </mat-option>
+                <!-- <mat-option value="option1">Emp1</mat-option>
+                <mat-option value="option2">Emp2</mat-option> -->
+              </mat-select>
+              <mat-error>This field is mandatory</mat-error>
+            </mat-form-field>
+          </p>
+          <button mat-button color= "primary" class = "dialog-button" type = "submit" mat-raised-button [disabled] = "addPeopleService.addEmployeeForm.invalid">Create</button>
+        </form>
+    </div>
+
+</div>

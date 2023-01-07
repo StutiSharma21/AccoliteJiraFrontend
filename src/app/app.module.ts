@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './services/app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material/material.module';
@@ -17,13 +17,16 @@ import { TaskComponent } from './task/task.component';
 import { TaskjiraComponent } from './taskjira/taskjira.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { IgxDropDownModule, IgxButtonModule, IgxToggleModule } from 'igniteui-angular';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 //service imports
 import { CreateProjectService } from './services/create-project.service';
 import { CreateJiraService } from './services/create-jira.service';
 import { CreateSprintService } from './services/create-sprint.service';
+import { ProjectInfoComponent } from './epic/project-info/project-info.component';
+import { UserInfoComponent } from './epic/user-info/user-info.component';
+import { AddPeopleComponent } from './epic/add-people/add-people.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +37,10 @@ import { CreateSprintService } from './services/create-sprint.service';
     LoginComponent,
     CreateProjectComponent,
     CreateJiraComponent,
-    CreateSprintComponent
+    CreateSprintComponent,
+    ProjectInfoComponent,
+    UserInfoComponent,
+    AddPeopleComponent
   ],
   imports: [
     BrowserModule,
@@ -46,9 +52,6 @@ import { CreateSprintService } from './services/create-sprint.service';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    IgxDropDownModule,
-	  IgxButtonModule,
-	  IgxToggleModule,
     NgbModule,
     HttpClientModule,
     MaterialModule,

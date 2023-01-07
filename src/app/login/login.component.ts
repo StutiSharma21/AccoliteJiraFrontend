@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -22,13 +22,13 @@ export class LoginComponent implements OnInit {
   }
   checkUser()
   {
-    console.log("ho");
     if(this.formGroup.valid)
     {
-        console.log(this.formGroup.value);
         this.authService.login(this.formGroup.value).subscribe((result)=>{
-        console.log(result);
-        this.router.navigate(['/jira']);
+        setTimeout(()=>{
+          this.authService.passEmployee(result);
+      }, 1000);
+        this.router.navigate(['/jira',result.alias]);
       },
       (error:any)=>{
         console.log(error);
@@ -37,3 +37,7 @@ export class LoginComponent implements OnInit {
     }
   }
 }
+
+
+
+

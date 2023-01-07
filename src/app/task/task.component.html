@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
     <div class="hamburger" (click)="openNav()">&#9776;</div>
     <div id="mySidenav" class="sidenav">
       <a class="closebtn" (click)="closeNav()">&times;</a>
@@ -13,7 +13,6 @@
       </li>
     </div>
       <nav class="navbar navbar-expand-lg ">
-        <!-- <p  class="display-6"> Dashboard</p> -->
             <ul class="navbar-nav">
               <li >
                 <a class="nav-link" href="#">Home</a>
@@ -31,4 +30,101 @@
 <div *ngFor="let x of phase">
     <h4>{{x}}</h4>
     <span *ngFor="let task of tasks"><app-taskjira [task]="task" [x]="x"></app-taskjira> </span> 
+</div> -->
+
+<header>
+  <img class="accolitelogo" src="assets/img/jira-logo.png" alt="" /><br />
+  <div class="hamburger" (click)="openNav()">&#9776;</div>
+  <div id="mySidenav" class="sidenav">
+    <a class="closebtn" (click)="closeNav()">&times;</a>
+    <!-- <p class="project_details">{{epics[0].projectId}}</p> -->
+    <a>View Sprint</a>
+    <li ngbDropdown class="nav-item dropdown">
+      <a
+        ngbDropdownToggle
+        class="nav-link dropdown-toggle"
+        id="navbarDropdown"
+        role="button"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+        ><mat-icon class="iconPeople">account_box</mat-icon>People</a>
+      <span
+        ngbDropdownMenu
+        class="dropdown-menu"
+        aria-labelledby="navbarDropdown">
+        <a ngbDropdownItem class="dropdown-item" href="#">Vasan</a>
+        <a ngbDropdownItem class="dropdown-item" href="#">Stuti</a>
+        <a ngbDropdownItem class="dropdown-item" href="#">Tanmay</a>
+      </span>
+    </li>
+    <a> <mat-icon class="iconAddPeople">add</mat-icon>Add People</a>
+  </div>
+  <nav class="navbar navbar-expand-lg">
+    <!-- <p  class="display-6"> Dashboard</p> -->
+    <ul class="navbar-nav">
+      <li>
+        <a style="color: #ffff" class="navbar-ele nav-link" href="#">Home</a>
+      </li>
+      <!-- <li >
+                <a style="color: #ffff;" class="navbar-ele nav-link" (click) = "onCreateProject()">Project</a>
+              </li> -->
+      <li ngbDropdown class="nav-item dropdown navbar-ele">
+        <a
+          ngbDropdownToggle
+          class="nav-link dropdown-toggle"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          >Create</a>
+        <span
+          ngbDropdownMenu
+          class="dropdown-menu"
+          aria-labelledby="navbarDropdown">
+          <a ngbDropdownItem class="dropdown-item" (click) = "onCreateSprint()">Sprint</a>
+        </span>
+      </li>
+      <!-- <li >
+                <a style="color: #ffff;" class="navbar-ele nav-link" (click) = "onCreateJira()">Create</a>
+              </li> -->
+      <li class="navbar-icon1">
+        <mat-icon>help_outline</mat-icon>
+      </li>
+      <li class="navbar-icon2">
+        <mat-icon>account_circle</mat-icon>
+      </li>
+    </ul>
+  </nav>
+</header>
+<div class="project-name">
+  <h3 class>Name of the project</h3>
 </div>
+
+<div *ngFor="let x of phase" class="phase-container">
+  <div class="sticky-element">
+    <h4 class="phase-heading">{{ x }}</h4>
+    <hr class="separator" />
+  </div>
+  <div class="epic-container">
+  <span *ngFor="let task of tasks"><app-taskjira [task]="task" [x]="x"></app-taskjira> </span> 
+</div>
+</div>
+
+<!-- <div *ngFor="let x of phase" id="main" class="phase-container">
+
+  <div class="sticky-element">
+    <h4 class="phase-heading">{{ x }}</h4>
+    <hr class="separator" />
+  </div>
+<div class="epic-container">
+  <span *ngFor="let epic of epics">
+    <app-epicjira [epic]="epic" [x]="x"></app-epicjira>
+  </span>
+</div> -->
+
+<!-- </div> -->
+
+<!-- <button mat-raised-button class = "create-button" mat-button color="primary" (click) = "onCreateSprint()" >Create Sprint</button>
+<a class="nav-link" href="#">Create</a> -->

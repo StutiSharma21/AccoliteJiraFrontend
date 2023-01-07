@@ -6,4 +6,8 @@ export interface Epic {
     priority:number;
     status:string;
     projectId:number;
+    // projectDescription:string;
+    // projectLabel:string;
+    // timestamp:Date;
+    // active:boolean;
 }

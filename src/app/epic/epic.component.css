@@ -1,14 +1,25 @@
-div{
-    background-color: #E5E4E2;
-    width:32.5%;
-    height: 100%;
+.phase-container{
+    /* background-color: #f4f4ed; */
+    background-color: #c4c7ca;
+    /* #E5E4E2 */
+    width:31%;
+    height: 78%;
     display: inline-block;
     text-align: center;
-    margin :10px 5px auto 5px;
+    /* margin :2px 5px auto 5px; */
+    margin-top: 2px;
+    margin-left: 21px;
+    margin-bottom: 10px;
+    margin-right: 5px;
     padding-bottom: 15px;
     padding-top: 10px;
-    border-radius: 3%;
+    border-radius: 1%;
+    overflow: auto;
 }
+.phase-container::-webkit-scrollbar { 
+  display: none;  
+}
+
 p{
   font-weight: 400;
 }
@@ -27,9 +38,10 @@ p{
 }
 
 header{
-    padding: 30px;
-    background-color: #E5E4E2;
-    font-family: Serif;
+  padding: 14px;
+  /* background-color: #8187dc; */
+  background-color: #1565c0;
+  font-family: Serif;
 }
 nav{
     padding-left: 10px;
@@ -37,6 +49,7 @@ nav{
 }
 ul{
     position: absolute;
+    cursor:pointer;
     left: 10px;
     top:0;
     font-size: medium;
@@ -48,25 +61,26 @@ ul{
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     margin-top: 0;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color:#f8f9fa;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 80px;
+    text-align: center;
   }
   .sidenav a {
     padding: 16px 8px 8px 8px;
     text-decoration: none;
     font-size: 18px;
-    color: #818181;
+    color: black;
     display: block;
     transition: 0.3s;
   }
   .project_details{
-    color: #818181;
+    color: black;
     display: block;
     transition: 0.3s;
     font-weight: 500;
@@ -75,6 +89,7 @@ ul{
     color: #F1F1F1;
   }
   .sidenav .closebtn {
+    cursor:pointer;
     position: absolute;
     top: 0;
     right: 25px;
@@ -88,39 +103,131 @@ ul{
   .hamburger{
     cursor:pointer;
     font-size: medium;
-    font-size: 2vw;
-    height: 1px;
-    width: 1px;
+    font-size: 1.5vw;
+    /* height: 1px; */
+    width: 0px;
     position:absolute;
-    top:35px;
-    left:10px;
+    margin-top: 20px;
+    top: 2px;
+    left:15px;
+
+    /* margin-bottom: 40px; */
+    color: #E5E4E2;
   }
 .dropdown-menu{
   padding-left: 40px;
 }
 .iconPeople{
   position: absolute;
-  top:35px;
+  top:15px;
   left: 60px;;
 }
 .iconAddPeople{
   position: absolute;
   left: 45px;
-  top: 213px;
+  top: 180px;
 }
 .accolitelogo{
-  width: 120px;
-  height: 70px;
+  width: 130px;
+  height: 15px;
   position: absolute;
   top:0;
-  left:15px;;
+  left:30px;
+  margin-top: 25px;
+  margin-left: 20px;
+  /* margin-right: 0px; */
 }
-/* =======
+
 ul{
     position: absolute;
-    left: 220px;
+    left: 170px;
+    top:-20px;
     font-size: medium;
     font-size:1.3vw;
     font-weight: 600;
->>>>>>> b61aaba4fbc3f5b6446adf7431a9660d4cc031c3
-} */
+} 
+.phase-heading{
+  z-index: 1;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: large;
+  font-weight: normal;
+  /* position: sticky; */
+}
+
+.separator{
+  margin-left: 5%;
+  width: 90%;
+  padding-bottom: 5px;  
+}
+
+.separator-div{
+  text-align: center;
+}
+
+.navbar-ele{
+font-family: "Montserrat";
+font-weight:100;
+margin-left: 0px;
+/* margin-top: 1px; */
+
+}
+
+.navbar-icon1{
+  margin-top: 5px;
+  margin-left: 900px;
+  color: #F1F1F1;
+  height: 8px;
+  width: 8px;
+  font-size: larger;
+}
+
+.navbar-icon2{
+  margin-top: 5px;
+  margin-left: 30px;
+  color: #F1F1F1;
+  font-size: larger;
+}
+
+.nav-link {
+  color: #f8f9fa;
+} 
+
+.navbar-nav .show>.nav-link {
+  color: #f8f9fa;
+}
+
+.project-name{
+  margin-top: 12px;
+  margin-left: 21px;
+  margin-bottom: 5px;
+}
+
+h3{
+  font-family: "Montserrat";
+  font-weight: bold;
+}
+
+.sticky-element{
+  top: 0;
+  position: sticky;
+  z-index: 1;
+  background-color: #c4c7ca;
+}
+
+.epic-container{
+  z-index: 1;
+  overflow: auto;
+  padding-bottom: 10px;
+}
+
+.epic-container::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+li{
+  list-style: none;
+}
+
+.dropdown-toggle::after {
+  content: none;
+}

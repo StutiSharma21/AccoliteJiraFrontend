@@ -7,7 +7,7 @@ import { HttpClient,HttpClientModule } from '@angular/common/http';
 })
 
 export class CreateSprintService {
-  url = 'http://localhost:8090/sprint/addSprint';
+  url = 'http://localhost:8080/sprint/addSprint';
   constructor(private http : HttpClient) { }
 
   createSprintForm : FormGroup = new FormGroup({
