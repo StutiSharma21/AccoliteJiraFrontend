@@ -9,7 +9,6 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 export class ProjectInfoComponent {
   constructor(public dialogRef: MatDialogRef<ProjectInfoComponent>,@Inject(MAT_DIALOG_DATA) public curProject : any){}
-
   onNoClick(): void {
     this.dialogRef.close();
   }

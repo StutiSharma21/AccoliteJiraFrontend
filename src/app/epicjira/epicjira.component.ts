@@ -51,7 +51,7 @@ editJira(){
     this.editJiraService.getProject(this.project);
     this.editJiraService.getLoggedInUser(this.employee);
   }, 1000);
-  this.dialog.open(EditJiraComponent,{height: '70%',
-  width: '40%'});
+  this.dialog.open(EditJiraComponent,{height: '80%',
+  width: '50%'});
 }
 }

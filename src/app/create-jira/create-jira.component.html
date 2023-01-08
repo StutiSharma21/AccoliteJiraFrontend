@@ -8,27 +8,10 @@
   <br>
 <p>
   <mat-label class = "label">{{project.projectLabel}}</mat-label>
-    <!-- <p>
-        <mat-form-field class="form-full-width">
-          <mat-label>Project Name</mat-label>
-          <input type="text" value="hello" formControlName = "projectName" matInput>
-          <mat-error>This field is mandatory</mat-error>
-        </mat-form-field>
-    </p> -->
+
   </p>
     <hr class = "rule">
-    
-    <!-- <p>
-        <mat-form-field appearance="fill">
-          <mat-label>Status</mat-label>
-          <mat-select formControlName = "jiraStatus">
-            <mat-option value="To Do"><mat-icon>checklist</mat-icon>To Do</mat-option>
-            <mat-option value="In Progress"><mat-icon>trending_up</mat-icon>In Progress</mat-option>
-            <mat-option value="Done"><mat-icon>verified</mat-icon>Done</mat-option>
-          </mat-select>
-          <mat-error>This field is mandatory</mat-error>
-        </mat-form-field>
-      </p> -->
+  
 
       <p>
         <mat-form-field appearance="fill">
@@ -70,19 +53,7 @@
 
     <p><mat-label class = "assignee">Assignee {{employee.alias}}</mat-label></p>
     <hr class="rule">
-    <!-- <p>
-        <mat-form-field appearance="fill">
-          <mat-label>Assignee</mat-label>
-          <mat-select formControlName = "jiraAssignee">
-            <mat-option *ngFor="let employee of assignEmployee" [value]="employee">
-              {{employee}}
-            </mat-option>
-            <mat-option value="option1">Emp1</mat-option>
-            <mat-option value="option2">Emp2</mat-option>
-          </mat-select>
-          <mat-error>This field is mandatory</mat-error>
-        </mat-form-field>
-      </p> -->
+
     <p>
         <mat-form-field class="form-full-width">
           <mat-label>Reporter</mat-label>
@@ -113,8 +84,3 @@
 </div>
 </form>
 </div>
-
-<!-- <mat-dialog-actions class = "action"> -->
-  <!-- <button class = "dialog-button" mat-raised-button color = "warn" (click) = "onClear()">Clear</button>
-  <button mat-button color= "primary" class = "dialog-button" type = "submit" mat-raised-button [disabled] = "createProjectFormService.createProjectForm.invalid">Create</button> -->
-<!-- </mat-dialog-actions> -->

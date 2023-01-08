@@ -14,7 +14,7 @@ export class AuthService {
   login(data):Observable<any>
   {
     console.log(data);
-    return this.http.post('http://localhost:8080/employees/checkEmployee',data);
+    return this.http.post('http://localhost:8080/employees/check',data);
   }
   passEmployee(employee:Employee)
   {

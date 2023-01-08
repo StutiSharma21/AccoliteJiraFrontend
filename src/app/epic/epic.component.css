@@ -133,9 +133,10 @@ ul {
   left: 60px;
 }
 .iconAddPeople {
+  cursor: pointer;
   position: absolute;
   left: 45px;
-  top: 180px;
+  top: 225px;
 }
 .accolitelogo {
   width: 130px;
@@ -252,12 +253,12 @@ li {
 }
 
 .dropdown-menu {
-  transform: translate(40px, 46px) !important;
+  /* transform: translate(40px, 46px) !important; */
 }
 
 .sidenav-image{
   width: 250px;
-  margin-top: 180px;
+  margin-top: 160px;
 }
 
 .dropdown-menu-create{
@@ -266,6 +267,12 @@ li {
 
 .icon-visibility{
   position: absolute;
-  top: 95px;
+  top: 140px;
   left: 45px;
+}
+
+.icon-bulb{
+position: absolute;
+top: 100ox;
+left: 65px;
 }

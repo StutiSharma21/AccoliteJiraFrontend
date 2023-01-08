@@ -3,40 +3,79 @@
   <div class="hamburger" (click)="openNav()">&#9776;</div>
   <div id="mySidenav" class="sidenav">
     <a class="closebtn" (click)="closeNav()">&times;</a>
-    <!-- <p class="project_details">{{epics[0].projectId}}</p> -->
-    
-    <li ngbDropdown  class="nav-item dropdown">
-      <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" 
-      aria-expanded="false">Project</a>
-      <span ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <button (click)="callProject(SelectedProject) ;getEmployeesByProject(SelectedProject.projectid)" ngbDropdownItem class="dropdown-item"  *ngFor="let SelectedProject of projects">
-          {{SelectedProject.projectLabel}}:{{SelectedProject.projectDescription}}</button>
+
+    <li ngbDropdown class="nav-item dropdown">
+      <a
+        ngbDropdownToggle
+        class="nav-link dropdown-toggle"
+        id="navbarDropdown"
+        role="button"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+        ><mat-icon class="icon-bulb">lightbulb</mat-icon>Project</a
+      >
+      <span
+        ngbDropdownMenu
+        class="dropdown-menu"
+        aria-labelledby="navbarDropdown"
+      >
+        <button
+          (click)="
+            callProject(SelectedProject);
+            getEmployeesByProject(SelectedProject.projectid)
+          "
+          ngbDropdownItem
+          class="dropdown-item"
+          *ngFor="let SelectedProject of projects"
+        >
+          {{ SelectedProject.projectLabel }}:{{
+            SelectedProject.projectDescription
+          }}
+        </button>
       </span>
     </li>
-    <a (click)="ViewSprint(curProject.projectId)"><mat-icon class="icon-visibility">visibility</mat-icon>View Sprint</a>
+    <a (click)="ViewSprint(curProject.projectId)"
+      ><mat-icon class="icon-visibility">visibility</mat-icon>View Sprint</a
+    >
 
-    <li ngbDropdown  class="nav-item dropdown">
-      <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" 
-      aria-expanded="false"><mat-icon class="iconPeople">account_box</mat-icon>People</a>
-      <span ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <button (click)="EmpAllEpics(emp.alias)" ngbDropdownItem class="dropdown-item" *ngFor="let emp of employees">
-          {{emp.name}}</button>
+    <li ngbDropdown class="nav-item dropdown">
+      <a
+        ngbDropdownToggle
+        class="nav-link dropdown-toggle"
+        id="navbarDropdown"
+        role="button"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+        ><mat-icon class="iconPeople">account_box</mat-icon>People</a
+      >
+      <span
+        ngbDropdownMenu
+        class="dropdown-menu"
+        aria-labelledby="navbarDropdown"
+      >
+        <button
+          (click)="EmpAllEpics(emp.alias)"
+          ngbDropdownItem
+          class="dropdown-item"
+          *ngFor="let emp of employees"
+        >
+          {{ emp.name }}
+        </button>
       </span>
     </li>
-
-    <a> <mat-icon class="iconAddPeople" (click) = "addPeople()">add</mat-icon>Add People</a>
-    <img src="/assets/img/side-nav.png" alt="" class = "sidenav-image">
-
+    <a (click)="addPeople()">
+      <mat-icon class="iconAddPeople">add</mat-icon>Add People</a
+    >
+    <img src="/assets/img/side-nav.png" alt="" class="sidenav-image" />
   </div>
   <nav class="navbar navbar-expand-lg">
-    <!-- <p  class="display-6"> Dashboard</p> -->
     <ul class="navbar-nav">
       <li>
         <a style="color: #ffff" class="navbar-ele nav-link" href="#">Home</a>
       </li>
-      <!-- <li >
-                <a style="color: #ffff;" class="navbar-ele nav-link" (click) = "onCreateProject()">Project</a>
-              </li> -->
+
       <li ngbDropdown class="nav-item dropdown navbar-ele">
         <a
           ngbDropdownToggle
@@ -46,29 +85,33 @@
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
-          >Create</a>
+          >Create</a
+        >
         <span
           ngbDropdownMenu
           class="dropdown-menu-create"
-          aria-labelledby="navbarDropdown">
-          <a ngbDropdownItem class="dropdown-item" (click)="onCreateProject()">Project</a>
-          <a ngbDropdownItem class="dropdown-item" (click)="onCreateJira()">Jira</a>
+          aria-labelledby="navbarDropdown"
+        >
+          <a ngbDropdownItem class="dropdown-item" (click)="onCreateProject()"
+            >Project</a
+          >
+          <a ngbDropdownItem class="dropdown-item" (click)="onCreateJira()"
+            >Jira</a
+          >
         </span>
       </li>
-      <!-- <li >
-                <a style="color: #ffff;" class="navbar-ele nav-link" (click) = "onCreateJira()">Create</a>
-              </li> -->
+
       <li class="navbar-icon1">
-        <mat-icon (click) = "getProjectInfo()">help_outline</mat-icon>
+        <mat-icon (click)="getProjectInfo()">help_outline</mat-icon>
       </li>
       <li class="navbar-icon2">
-        <mat-icon (click) = "getUserInfo()">account_circle</mat-icon>
+        <mat-icon (click)="getUserInfo()">account_circle</mat-icon>
       </li>
     </ul>
   </nav>
 </header>
 <div class="project-name">
-  <h3 class>Project:{{curProject.projectLabel}}</h3>
+  <h3 class>Project:{{ curProject.projectLabel }}</h3>
 </div>
 <div *ngFor="let x of phase" id="main" class="phase-container">
   <!-- for printing different phases -->
@@ -76,14 +119,14 @@
     <h4 class="phase-heading">{{ x }}</h4>
     <hr class="separator" />
   </div>
-<div class="epic-container">
-  <span *ngFor="let epic of epics">
-    <app-epicjira [epic]="epic" [x]="x" [project]="curProject" [employee]="employee"></app-epicjira>
-  </span>
-  <!-- <img src="/assets/img/to-do-bg.png" alt="" class = "dialog-image"> -->
+  <div class="epic-container">
+    <span *ngFor="let epic of epics">
+      <app-epicjira
+        [epic]="epic"
+        [x]="x"
+        [project]="curProject"
+        [employee]="employee"
+      ></app-epicjira>
+    </span>
+  </div>
 </div>
-
-</div>
-
-<!-- <button mat-raised-button class = "create-button" mat-button color="primary" (click) = "onCreateSprint()" >Create Sprint</button>
-<a class="nav-link" href="#">Create</a> -->
