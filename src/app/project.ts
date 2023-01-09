@@ -1,5 +1,7 @@
+import { IgxStringReplacePipe } from "igniteui-angular";
+
 export interface Project {
-    projectid:number,
+    projectid:String,
     isActive:boolean,
     projectDescription:String,
     projectLabel:String,

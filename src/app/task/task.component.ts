@@ -6,6 +6,9 @@ import { Project } from '../project';
 import { ProjectService } from '../services/project.service';
 import { Epic } from '../epic';
 import { CreateSprintService } from '../services/create-sprint.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { CreateSprintComponent } from '../create-sprint/create-sprint.component';
+import { UserInfoComponent } from './user-info/user-info.component';
 
 @Component({
   selector: 'app-task',
@@ -15,7 +18,9 @@ import { CreateSprintService } from '../services/create-sprint.service';
 export class TaskComponent {
 constructor(public taskservice:TaskService,
   public projectService :ProjectService,
-  public sprintService:CreateSprintService
+  public sprintService:CreateSprintService,
+  public createSprintFormService : CreateSprintService,
+  public dialog : MatDialog
   ){}
 phase=["To-Do","In Progress","Done"]
 tasks:any;
@@ -64,6 +69,12 @@ closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
 onCreateSprint(){
+  // console.log(this.createSprintFormService.createSprintForm)
+  // const dialogConfig = new MatDialogConfig();
+  // dialogConfig.disableClose = true;
+  // dialogConfig.autoFocus = true;
+ this.dialog.open(CreateSprintComponent,{height: '95%',
+ width: '60%'})
 }
 EmpAllTask(employeeId){
 this.taskservice.getAllTaskOfEmployeeOfEpic(employeeId,this.projectId).subscribe((value)=>this.tasks=value);
@@ -77,5 +88,15 @@ this.ngOnInit;
 // getTaskOfSprint(){
 //   this.sprintService.getTaskOfSprintBySprintId().subscribe();
 // }
+
+getUserInfo(){
+  console.log(this.curemployee);
+  const dialogConfig = new MatDialogConfig();
+  this.dialog.open(UserInfoComponent,{height: '45%',
+  width: '25%',
+  position: {right:'4%', top: '4%'},
+  data : this.curemployee });
+
+}
 
 }

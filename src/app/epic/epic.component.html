@@ -39,7 +39,7 @@
       ><mat-icon class="icon-visibility">visibility</mat-icon>View Sprint</a
     >
 
-    <li ngbDropdown class="nav-item dropdown">
+    <li ngbDropdown class="nav-item dropdown-people">
       <a
         ngbDropdownToggle
         class="nav-link dropdown-toggle"
@@ -111,7 +111,7 @@
   </nav>
 </header>
 <div class="project-name">
-  <h3 class>Project:{{ curProject.projectLabel }}</h3>
+  <h2>Project : {{ curProject.projectLabel }}</h2>
 </div>
 <div *ngFor="let x of phase" id="main" class="phase-container">
   <!-- for printing different phases -->

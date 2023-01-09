@@ -1,5 +1,5 @@
 export interface Epic {
-    epicId: number;
+    epicId: String;
     epicLabel: string;
     epicDescription: string;
     assignee: string;

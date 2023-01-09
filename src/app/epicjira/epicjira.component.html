@@ -6,20 +6,7 @@
   *ngIf="epic.jiraStatus == x"
 >
 
-  <!-- <mat-grid-tile (click)="displayTasks()"> -->
     <mat-grid-tile>
-    <!-- <div>
-      <div class = "assignee-details">
-        <div class="circle text-uppercase">{{ epic.jiraAssignee.charAt(0) }}</div>
-        <div class="assignee">{{ epic.jiraAssignee }}</div>
-      </div>
-      <p class="epicid">{{ epic.jiraId }}</p>
-      <p class="epiclabel">{{ epic.jiraTitle }}<mat-icon class="icon">offline_bolt</mat-icon></p> -->
-      <!-- <div class="prio" [style.background]="changePriorityColor(epic.priority)"></div> -->
-          <!-- <div class="desc">{{epic.jiraDescription}}</div>
-    </div> -->
-
-
 
     <div id = "leftbox">
       <div class="prio" [style.background]="changePriorityColor(epic.jiraPriority)"></div>
@@ -40,7 +27,7 @@
           ngbDropdownMenu
           class="dropdown-menu-vert"
           aria-labelledby="navbarDropdown">
-          <a ngbDropdownItem class="dropdown-item" (click)="editJira()">Edit/View</a>
+          <a ngbDropdownItem class="dropdown-item" (click)="editJira(epic)">Edit/View</a>
           <a ngbDropdownItem class="dropdown-item" (click)="displayTasks(epic)">View tasks in current sprint</a>
         </span>
       </li>

@@ -185,7 +185,7 @@ ul {
 
 .navbar-icon1 {
   margin-top: 5px;
-  margin-left: 935px;
+  margin-left: 940px;
   color: #f1f1f1;
   height: 8px;
   width: 8px;
@@ -208,9 +208,11 @@ ul {
 }
 
 .project-name {
+  font-family: "Raleway";
   margin-top: 12px;
   margin-left: 21px;
   margin-bottom: 5px;
+  font-weight: lighter;
 }
 
 h3 {
@@ -273,6 +275,15 @@ li {
 
 .icon-bulb{
 position: absolute;
-top: 100ox;
+top: 80px;
 left: 65px;
+}
+
+.dropdown-people{
+  /* position: absolute;
+  inset: 0px auto auto 0px;
+  margin: 0px;
+  transform: translate(40px, 46px); */
+  text-align: center;
+  padding-left: 0px;
 }

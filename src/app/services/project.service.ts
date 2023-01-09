@@ -17,7 +17,9 @@ export class ProjectService {
   getEpicsOfProject(projectId:number)
   {
     //change api
-    return this.http.get("http://localhost:8080/jira/getEpics/"+projectId);
+    var value=this.http.get("http://localhost:8080/jira/getEpics/"+projectId);
+    console.log(value);
+    return value;
   }
   getEmployeesByProject(projectId:number){
     return this.http.get("http://localhost:8080/employees/projectemployees/"+projectId+"/allemployees");

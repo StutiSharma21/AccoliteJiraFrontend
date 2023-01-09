@@ -1,6 +1,6 @@
-import { Component,EventEmitter,Input } from '@angular/core';
+import { Component,EventEmitter,Inject,Input } from '@angular/core';
 import { EditorProvider } from 'igniteui-angular/lib/core/edit-provider';
-import { MatDialog,MatDialogRef } from '@angular/material/dialog';
+import { MatDialog,MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EpicService } from '../services/epic.service';
 import { Jira } from '../jira';
 import { Project } from '../project';
@@ -17,7 +17,8 @@ export class EditJiraComponent {
     public editJiraService:EditJiraService,
     public dialogRef : MatDialogRef<EditJiraComponent>,
     public dialog : MatDialog,
-    private epicService:EpicService
+    private epicService:EpicService,
+    @Inject(MAT_DIALOG_DATA) public curEpic : any
     ){}
 
     data : any;
@@ -53,6 +54,10 @@ export class EditJiraComponent {
         this.employee=data;
       console.log(this.employee);
       })
+      // this.editJiraService.currEpic.subscribe((data)=>
+      // {
+      //   console.log(data);
+      // })
       //console.log("hiyeee");
     }
 
@@ -60,7 +65,8 @@ export class EditJiraComponent {
       console.log(this.editJiraService.editJiraForm.value)
       console.log(this.editJiraService.editJiraForm.value.jiraTitle);
       this.jira={
-        jiraStatus:"To-Do",
+        jiraId:this.curEpic.jiraId,
+        jiraStatus:this.editJiraService.editJiraForm.value.jiraStatus,
         jiraTitle:this.editJiraService.editJiraForm.value.jiraTitle,
         projectName:this.project.projectLabel,
         jiraDescription:this.editJiraService.editJiraForm.value.jiraDescription,
@@ -69,8 +75,8 @@ export class EditJiraComponent {
         jiraType:this.editJiraService.editJiraForm.value.jiraType,
         jiraepic:this.editJiraService.editJiraForm.value.jiraLinkedIssue,
         employee:this.employee,
-        jiraprojects:this.project
-        //jiraPriority:this.editJiraService.editJiraForm.value.
+        jiraprojects:this.project,
+        jiraPriority:this.editJiraService.editJiraForm.value.jiraPriority
       }
       // this.jira.jiraTitle=this.createJiraFormService.createJiraForm.value.jiraTitle;
       // this.jira.jiraDescription=this.createJiraFormService.createJiraForm.value.jiraDescription;

@@ -1,5 +1,5 @@
 export interface Employee {
-    employeeId:number;
+    employeeId:String;
     alias:String;
     name:String;
     email:String;

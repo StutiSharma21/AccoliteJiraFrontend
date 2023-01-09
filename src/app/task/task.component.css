@@ -1,24 +1,29 @@
 .phase-container{
-  /* background-color: #F4F4ED; */
-  background-color: #C4C7CA;
+  /* background-color: #f4f4ed; */
+  background-color: #c4c7ca;
   /* #E5E4E2 */
-  width:31%;
+  width: 31%;
   height: 78%;
   display: inline-block;
   text-align: center;
   /* margin :2px 5px auto 5px; */
-  margin-top: 2px;
+  /* margin-top: 50px; */
   margin-left: 21px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   margin-right: 5px;
   padding-bottom: 15px;
   padding-top: 10px;
   border-radius: 1%;
   overflow: auto;
+  padding-top: 0px;
+  background-image: url("/assets/img/to-do-bg2.png");
+  /* background-size: 500px 300px;   */
+  background-position: 90px 90px;
 }
 .phase-container::-webkit-scrollbar {
-display: none;  /* Safari and Chrome */
+  display: none;
 }
+
 p{
 font-weight: 400;
 }
@@ -161,18 +166,20 @@ font-weight:100;
 margin-left: 0px;
 /* margin-top: 1px; */
 }
-.navbar-icon1{
-margin-top: 5px;
-margin-left: 860px;
-color: #F1F1F1;
-height: 8px;
-width: 8px;
+.navbar-icon1 {
+  margin-top: 5px;
+  margin-left: 940px;
+  color: #f1f1f1;
+  height: 8px;
+  width: 8px;
+  font-size: larger;
 }
-.navbar-icon2{
-margin-top: 5px;
-margin-left: 30px;
-color: #F1F1F1;
-font-size: 24px;
+
+.navbar-icon2 {
+  margin-top: 5px;
+  margin-left: 30px;
+  color: #f1f1f1;
+  font-size: larger;
 }
 .nav-link {
 color: #F8F9FA;

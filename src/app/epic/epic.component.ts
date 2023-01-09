@@ -106,22 +106,14 @@ ngOnInit(){
           this.editJiraService.getLoggedInUser(this.employee);
         }, 1000);
       });
-    // this.authService.employeeob.subscribe((ema)=>{
-    //  
-    //   this.employee=ema;
-    //   // console.log(ema);
-    //   console.log(this.employee);
-    //   // console.log(this.employee.alias);
-    //   //get projects
-    //   //now get epics of recent project and pass to epic
-    //   });
-
     });
   });
 }
 
 getEmployeesByProject(projectid:number){
-  this.projectService.getEmployeesByProject(projectid).subscribe((data)=>this.employees=data);
+  this.projectService.getEmployeesByProject(projectid).subscribe((data)=>{
+    this.employees=data
+  });
   this.ngOnInit;
 }
 
@@ -142,6 +134,7 @@ getProjectInfo(){
 }
 
 getUserInfo(){
+  console.log(this.employee);
   const dialogConfig = new MatDialogConfig();
   this.dialog.open(UserInfoComponent,{height: '45%',
   width: '25%',

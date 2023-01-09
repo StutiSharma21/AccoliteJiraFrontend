@@ -60,6 +60,7 @@ export class CreateJiraComponent{
       console.log(this.createJiraFormService.createJiraForm.value)
       console.log(this.createJiraFormService.createJiraForm.value.jiraTitle);
       this.jira={
+        jiraId:"",
         jiraStatus:"To-Do",
         jiraTitle:this.createJiraFormService.createJiraForm.value.jiraTitle,
         projectName:this.project.projectLabel,
@@ -70,7 +71,7 @@ export class CreateJiraComponent{
         jiraepic:this.createJiraFormService.createJiraForm.value.jiraLinkedIssue,
         employee:this.employee,
         jiraprojects:this.project,
-        //jiraPriority:this.createJiraFormService.createJiraForm.value.jiraPriority
+        jiraPriority:this.createJiraFormService.createJiraForm.value.jiraPriority
       }
       // this.jira.jiraTitle=this.createJiraFormService.createJiraForm.value.jiraTitle;
       // this.jira.jiraDescription=this.createJiraFormService.createJiraForm.value.jiraDescription;

@@ -42,16 +42,19 @@ displayTasks(epic:any)
   this._router.navigate(['/sprint']);
 }
 
-editJira(){
+editJira(epic:any){
+  // this.editJiraService.currEpic.next(epic);
   console.log(this.editJiraService.editJiraForm)
   const dialogConfig = new MatDialogConfig();
   dialogConfig.disableClose = true;
   dialogConfig.autoFocus = true;
   setTimeout(()=>{
+    this.editJiraService.setCurrEpic(epic);
     this.editJiraService.getProject(this.project);
     this.editJiraService.getLoggedInUser(this.employee);
   }, 1000);
-  this.dialog.open(EditJiraComponent,{height: '80%',
-  width: '50%'});
+  this.dialog.open(EditJiraComponent,{height: '90%',
+  width: '50%', data : epic});
 }
 }
+

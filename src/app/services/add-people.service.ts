@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AddPeopleService {
-  url = 'http://localhost:8080/add/employee/{projectId}/project/{alias}';
+  // url = 'http://localhost:8080/add/employee/{projectId}/project/{alias}';
   constructor(private http : HttpClient) { }
 
   addEmployeeForm : FormGroup = new FormGroup({
@@ -19,7 +19,6 @@ export class AddPeopleService {
   }
 
   addEmployeeToProject(projectId : number, alias : string){
-    console.log("http://localhost:8080/projects/add/employee/" + projectId + "/project/" + alias);
     return this.http.put("http://localhost:8080/projects/add/employee/" + projectId + "/project/" + alias, {});
   }
 
